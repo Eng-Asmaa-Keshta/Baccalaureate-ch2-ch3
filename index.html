@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>تحدي البكالوريا</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:linear-gradient(135deg,#1e1b4b,#4c1d95 50%,#0e7490);color:#fff;min-height:100vh}
+.w{max-width:640px;margin:auto;padding:14px}.card{background:#ffffff1f;border:1px solid #ffffff44;border-radius:18px;padding:16px;margin:10px 0}
+h1{text-align:center;font-size:28px;margin:10px 0}button{font:inherit;cursor:pointer;border:0;border-radius:14px;padding:12px 16px;color:#fff;background:#f97316;font-weight:700;width:100%;margin-top:8px}
+input,textarea{width:100%;padding:12px;border-radius:12px;border:0;font:inherit;background:#fff;color:#111;direction:ltr;text-align:left}
+.o{background:#ffffff26;text-align:left;direction:ltr;font-weight:500}.o.sel{background:#22c55e}.o.ok{background:#16a34a}.o.no{background:#dc2626}
+.bar{display:flex;justify-content:space-between;font-weight:700}.pb{height:10px;background:#ffffff33;border-radius:9px;overflow:hidden}.pb i{display:block;height:100%;background:#facc15}
+.q{font-size:18px;direction:ltr;text-align:left;font-weight:700}.ans{background:#0006;border-radius:12px;padding:10px;margin-top:8px;direction:ltr;text-align:left;font-size:14px}
+.big{font-size:60px;text-align:center}small{opacity:.85}
+</style></head><body><div class="w" id="app"></div>
+<script>
+const PHONE="201007243344";
+const DB="PASTE_FIREBASE_DB_URL_HERE";let sid;
+function push(done){if(!DB.startsWith('http'))return;const rec={name,sid,ts:Date.now(),done:!!done,n:mA.length+eA.length,pts,lives,cur:phase=='m'?(Q[i]||[])[0]:(E[i]||[])[0],mcq:mA.map((k,n)=>({q:Q[n][0],a:Q[n][1][k],ok:k==Q[n][2],c:Q[n][1][Q[n][2]]})),essay:eA.map((a,n)=>({q:E[n][0],a}))};fetch(DB.replace(/\/$/,'')+'/live/'+sid+'.json',{method:'PUT',body:JSON.stringify(rec)}).catch(()=>{})}
+// [question, [options], correctIndex]
+const M=[
+["Which technology is primarily used to encrypt session data in TLS?",["Public-key cryptography","Symmetric cryptography","Digital signature","Digital certificate"],1],
+["The steps for establishing a secure connection and agreeing on shared secrets are called:",["TLS handshake","Symmetric cryptography","Digital signature","Digital certificate"],0],
+["Using two or more factors from different categories to verify identity is called:",["Multi-factor authentication (MFA)","Public-key encryption","TLS handshake","Symmetric cryptography"],0],
+["Which is an example of the Biometric factor?",["Text password","Fingerprint or facial recognition","ATM card","SMS verification code"],1],
+["Which is NOT a correct two-factor authentication because both factors are knowledge?",["Password + OTP sent to phone","Password + fingerprint","Password + a second secret password","Password + authenticator app code"],2],
+["Which technology detects tampering and impersonation and supports non-repudiation?",["Digital signature","Public-key cryptography","TLS handshake","Cloud computing"],0],
+["HTTP transmitted over a secure TLS connection is known as:",["FTP","HTTPS","SMTP","DNS"],1],
+["Which helps the browser verify the server's identity and the domain match?",["Digital certificate","Symmetric cryptography","Digital signature","Two-factor authentication"],0],
+["A system that allows or denies communication based on rules set in advance is a:",["VPN","DMZ","Firewall","Antivirus"],2],
+["What is the most appropriate reason for a DMZ?",["To improve communication speed","To expose all servers to the outside","To prevent damage to the internal network even if a public-facing server is attacked","To automatically remove viruses"],2],
+["Which is NOT an appropriate use of a VPN?",["Connecting safely from home to the organization's network","Connecting offices in different locations safely","Automatically deleting files infected with viruses","Encrypting communication on public Wi-Fi"],2],
+["Which best describes the Zero Trust concept?",["Access from inside the network is safe","A firewall alone is sufficient","No communication is trusted and is always verified","Only outside access needs monitoring"],2],
+["Defense in depth is the concept of:",["Relying on one strong firewall","Layering multiple security measures","Trusting all internal devices","Encrypting only public Wi-Fi traffic"],1],
+["Installing antivirus software and updating the OS belongs to which defense layer?",["Network entry point","Communication path","Server placement","Endpoints (peripheral devices)"],3],
+["The traditional boundary that assumes inside is safe and outside is a threat is called:",["DMZ","Security perimeter","Edge computing","Zero Trust"],1],
+["A VPN is:",["A system that monitors traffic using rules","A technology that creates an encrypted virtual private line over the Internet","An area for public servers","A virus-removal tool"],1],
+["A situation in which actual damage occurs due to an information security problem is a:",["Risk assessment","Security incident","Lesson learned","Threat containment"],1],
+["Which is NOT an example of a security incident?",["Data encrypted by ransomware","Customer data leaked","A software update performed to add new features","Web service down due to an attack"],2],
+["Which stage limits the spread of damage and isolates the affected part?",["Preparation","Containment","Recovery","Eradication"],1],
+["Which stage restores systems to normal, e.g. from a clean backup?",["Preparation","Containment","Recovery","Detection"],2],
+["Risk size is determined by:",["Impact + Likelihood","Impact × Likelihood","Impact only","Likelihood only"],1],
+["Which risks should be addressed first in the Risk Matrix?",["Low impact, low likelihood","Medium impact, medium likelihood","High impact, high likelihood","Low impact, high likelihood"],2],
+["The final stage of the six stages of incident response is:",["Recovery","Eradication","Detection","Prevention of recurrence"],3],
+["Removing the cause of the incident, such as deleting malware, is:",["Containment","Eradication","Preparation","Recovery"],1],
+["In web applications, the client is:",["The server that processes requests","The program or device that sends requests","The database","The communication protocol"],1],
+["When sending login information, it is preferable to use:",["GET","POST","200","404"],1],
+["The protocol that adds SSL/TLS encryption to HTTP is:",["HTTPS","API","JSON","GET"],0],
+["Status code 404 means:",["Successful request","Internal server error","Page/resource not found","Secure connection"],2],
+["Status code 500 means:",["Request processed successfully","Page not found","A problem occurred on the server side","Unauthorized request"],2],
+["An API is:",["A technology for adjusting page appearance","A system for exchanging data between different pieces of software","A technology for encrypting data","An HTTP method"],1],
+["An advantage of JSON is that it is:",["Easy for humans to read and computers to process","Used to encrypt data","Used to design interfaces","A status code"],0],
+["Displaying search results uses which HTTP method?",["POST","GET","500","HTTPS"],1],
+["Which technology defines the structure (skeleton) of a web page?",["CSS","JavaScript","HTML","SQL"],2],
+["Which technology specifies the appearance (colors, layout, fonts)?",["CSS","HTML","JavaScript","API"],0],
+["Which technology adds behavior and interactivity?",["HTML","CSS","JavaScript","SQL"],2],
+["Which is NOT an HTML semantic element?",["<header>","<e-mail>","<main>","<footer>"],1],
+["Responsive design means:",["Improving server speed","Automatically adjusting the layout to different screen sizes","Using JS for interaction","Making pages work only on computers"],1],
+["Mobile-first means:",["Designing first for computers","Designing first for small screens such as smartphones","Using JavaScript for interactivity","Improving server speed"],1],
+["Next.js is a framework built on:",["Vue","React","HTML","CSS"],1],
+["The main benefit of using a framework is:",["Developers don't need to write all code from scratch","It replaces HTML","It encrypts the page","It improves the database"],0]];
+// essays: [question, model answer, keywords]
+const E=[
+["Explain the roles of public-key and symmetric cryptography in the TLS handshake.","Public-key cryptography is used during the TLS handshake to authenticate the server and securely exchange a shared secret. Symmetric cryptography then encrypts the session data quickly and efficiently.",["handshake","public","symmetric","session"]],
+["Explain how two-factor authentication (2FA) reduces risk.","2FA requires two factors from different categories (knowledge + possession). A leaked password alone is not enough because the attacker also needs the physical second device.",["two","different","knowledge","possession"]],
+["Compare a digital certificate and a digital signature.","A digital certificate binds a public key to an entity's identity (domain validation). A digital signature guarantees the integrity and origin of data, detects tampering and provides non-repudiation.",["certificate","identity","signature","integrity","repudiation"]],
+["Explain defense in depth and name its four layers with a measure for each.","Defense in depth layers multiple security measures so if one fails the next protects. Layers: network entry - firewall; communication path - VPN; server placement - DMZ; endpoints - antivirus.",["layer","firewall","vpn","dmz","endpoint"]],
+["What is a DMZ and how does it protect the internal network?","A DMZ is a zone where servers exposed to the outside are placed separately from the internal network. If a public server is attacked, the damage does not reach the internal network.",["public","separate","internal","attack"]],
+["Compare traditional security with the Zero Trust approach.","Traditional security trusts everything inside the perimeter. Zero Trust does not automatically trust any user or device, even inside the network, and verifies every access request.",["trust","inside","verif","every"]],
+["List the six stages of incident response in order.","Preparation, Detection, Containment, Eradication, Recovery, Prevention of recurrence.",["preparation","detection","containment","eradication","recovery","prevention"]],
+["Why must Containment come before Eradication? Why is Impact × Likelihood used?","Containment stops the spread first, otherwise malware keeps infecting other systems while it is removed. Risk size = Impact × Likelihood, so high impact and high likelihood risks are handled first.",["spread","malware","impact","likelihood","first"]],
+["Explain the difference between GET and POST and why login needs HTTPS.","GET retrieves data (display a page, search results). POST sends data in the request body (login, forms). HTTPS encrypts with SSL/TLS so passwords cannot be intercepted.",["get","retriev","post","send","encrypt"]],
+["Explain the roles of HTML, CSS and JavaScript, and why semantic HTML is important.","HTML defines the structure, CSS specifies the appearance, JavaScript adds behavior and interactivity. Semantic HTML (e.g. <nav>, <main>) improves SEO and accessibility for screen readers.",["structure","appearance","behavior","semantic","seo"]]];
+const sh=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const $=id=>document.getElementById(id),A=$('app');
+let name,Q,i,lives,pts,streak,mA,eA,phase,sent,t0;
+function home(){A.innerHTML=`<h1>🎓 تحدي البكالوريا 🚀</h1><div class="card"><div class="big">🛡️🌐</div><p style="text-align:center">الأمن السيبراني + تطبيقات الويب<br>٤٠ سؤال اختيار 🎯 + ١٠ أسئلة مقالية ✍️<br>معاك ٥ قلوب ❤️ — اجمع نقاط وسلسلة إجابات صح 🔥</p><input id="nm" placeholder="Student name / اسم الطالب"><button onclick="start()">يلا نبدأ! 🎮</button></div>`}
+function start(){name=$('nm').value.trim();if(!name){$('nm').focus();return}
+Q=sh(M).map(q=>{const c=q[1][q[2]],o=sh(q[1]);return[q[0],o,o.indexOf(c)]});mA=[];eA=[];i=0;lives=5;pts=0;streak=0;sent=false;sid=Date.now().toString(36)+Math.random().toString(36).slice(2,6);phase='m';t0=Date.now();show()}
+function hud(n,t){return`<div class="bar"><span>❤️ ${lives}</span><span>⭐ ${pts}</span><span>🔥 ${streak}</span><span>${n}/${t}</span></div><div class="pb"><i style="width:${n/t*100}%"></i></div>`}
+function show(){push();if(phase=='m'){if(i>=40){phase='e';i=0;return show()}const q=Q[i];A.innerHTML=hud(i+1,50)+`<div class="card"><div class="q">${i+1}. ${esc(q[0])}</div>`+q[1].map((o,k)=>`<button class="o" onclick="pick(${k})">${'ABCD'[k]}) ${esc(o)}</button>`).join('')+`</div>`}
+else{if(i>=10)return finish();const q=E[i];A.innerHTML=hud(40+i+1,50)+`<div class="card"><div class="q">Essay ${i+1}. ${esc(q[0])}</div><br><textarea id="ea" rows="6" placeholder="Write your answer in English..."></textarea><button onclick="nextE()">التالي ➡️</button></div>`}}
+function pick(k){const q=Q[i],ok=k==q[2];mA.push(k);const b=document.querySelectorAll('.o');b.forEach((x,n)=>{x.disabled=true;if(n==q[2])x.classList.add('ok');else if(n==k)x.classList.add('no')});
+if(ok){pts+=10+streak*2;streak++}else{streak=0;lives--}
+A.firstChild.outerHTML=hud(i+1,50);setTimeout(()=>{i++;show()},ok?500:900)}
+function nextE(){eA.push($('ea').value.trim());i++;show()}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+function sc(k,a){const t=a.toLowerCase();return +(k.filter(w=>t.includes(w)).length/k.length).toFixed(2)}
+function calc(){let m=0;Q.forEach((q,n)=>{if(mA[n]==q[2])m++});let e=0;E.forEach((q,n)=>e+=sc(q[2],eA[n]||''));return[m,+e.toFixed(1)]}
+function finish(){push(true);const[m,e]=calc(),mins=Math.round((Date.now()-t0)/60000);
+let t=`📝 Bac Exam Result\n👤 ${name}\n🎯 MCQ: ${m}/40\n✍️ Essay (keyword-auto): ${e}/10\n🏆 Total: ${(m+e).toFixed(1)}/50  ⏱️ ${mins} min\n\n--- MCQ ---\n`;
+Q.forEach((q,n)=>{const k=mA[n];t+=`${n+1}. ${q[0].slice(0,60)} => ${'ABCD'[k]}) ${q[1][k].slice(0,40)} ${k==q[2]?'✅':'❌'}\n`});
+t+=`\n--- Essay ---\n`;E.forEach((q,n)=>t+=`E${n+1}. ${q[0].slice(0,60)}\nA: ${eA[n]||'(blank)'}\n`);
+window._t=t;A.innerHTML=`<h1>🏁 خلصت الامتحان!</h1><div class="card"><div class="big">📲</div><p style="text-align:center">ابعت نتيجتك لميس أسماء على واتساب عشان يظهرلك التصحيح والإجابات النموذجية 👇</p><button onclick="send()">إرسال النتيجة على واتساب 📲</button></div>`}
+function send(){window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(window._t)}`,'_blank');sent=true;setTimeout(review,800)}
+function review(){const[m,e]=calc();let h=`<h1>📊 النتيجة: ${(m+e).toFixed(1)}/50</h1><div class="card">MCQ: ${m}/40 • مقالي: ${e}/10 • ⭐ ${pts}</div><button onclick="window.open('https://wa.me/${PHONE}?text='+encodeURIComponent(window._t),'_blank')">إعادة إرسال 📲</button>`;
+Q.forEach((q,n)=>{const k=mA[n],ok=k==q[2];h+=`<div class="card"><div class="q">${ok?'✅':'❌'} ${n+1}. ${esc(q[0])}</div><div class="ans">Your answer: ${esc(q[1][k])}${ok?'':`<br><b>✔ Correct: ${'ABCD'[q[2]]}) ${esc(q[1][q[2]])}</b>`}</div></div>`});
+E.forEach((q,n)=>{h+=`<div class="card"><div class="q">✍️ Essay ${n+1}. ${esc(q[0])}</div><div class="ans">Your answer: ${esc(eA[n]||'(blank)')}<br>Score: ${sc(q[2],eA[n]||'')} /1<br><b>✔ Model answer: ${esc(q[1])}</b><br><small>Keywords: ${q[2].join(', ')}</small></div></div>`});
+A.innerHTML=h+`<button onclick="home()">امتحان جديد 🔄</button>`}
+home();
+</script></body></html>
